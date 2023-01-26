@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Coming Soon</title>
+  <style>
+    /* Add some style for the page */
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    video {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -100;
+      transform: translateX(-50%) translateY(-50%);
+      background-size: cover;
+    }
+    /* Style for the countdown timer and subscription form */
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    h1 {
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin-top: 0;
+    }
+    #timer {
+      color: #fff;
+      font-size: 50px;
+      margin-top: 25px;
+    }
+    /* Style for the subscription form */
+    form {
+      border: solid 2px #fff; /* white solid border */
+      margin-top: 50px;
+      display: inline-block;
+      text-align: left;
+      transition: transform 0.2s ease-in-out; /* smooth transition */
+    }
+    input[type="email"] {
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      color: #fff;
+    }
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 12px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    /* Add some style for the page */
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    video {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -100;
+      transform: translateX(-50%) translateY(-50%);
+      background-size: cover;
+    }
+    /* Style for the countdown timer and subscription form */
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    h1 {
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin-top: 0;
+    }
+    #timer {
+      color: #fff;
+      font-size: 50px;
+      margin-top: 25px;
+    }
+    /* Style for the subscription form */
+    form {
+      margin-top: 50px;
+      display: inline-block;
+      text-align: left;
+      border: 2px solid #fff; /* add this line to create the border */
+      padding: 15px; /* add some space between the border and the form fields */
+      transition: transform 0.2s ease-in-out; /* smooth transition */
+      border: solid 2px #fff; /* white solid border */
+    }
+    /* Pop up the form on hover */
+    form:hover {
+      transform: scale(1.1); /* increase the size of the form */
+      z-index: 1; /* bring the form to the front of the page */
+    }
+    input[type="email"] {
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      color: #fff;
+    }
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 12px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+
+</head>
+<body>
+  <video autoplay loop muted>
+    <source src="video1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="content">
+    <h1>Our website is coming soon!</h1>
+    <div id="timer"></div>
+    <form>
+      <label for="email">Subscribe to our newsletter:</label>
+      <input type="email" id="email" placeholder="Enter your email address">
+      <input type="submit" value="Subscribe">
+    </form>
+  </div>
+  <script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("May 1, 2023 15:37:25").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+      // Get today's date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the result in the element with id="timer"
+      document.getElementById("timer").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+
+      // If the count down is finished, write something
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("timer").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+    
+    // Get the form element
+    var form = document.querySelector("form");
+
+    // Listen for the submit event on the form
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // prevent the form from submitting
+
+      // Display the message
+      alert("We will reach you soon!");
+    });
+
+  </script>
+</body>
+</html>
